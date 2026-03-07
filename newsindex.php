@@ -74,33 +74,39 @@ function makeHead($page,$mpp,$ft)
 	$headline=	htmlspecialchars_decode ($title,ENT_QUOTES);		// Decode html entities	
 	$title = strtr($headline, $ft);
 	$headline = preg_replace("%,.*?,%", '', $title);
-	$headline=myTruncate2($headline, 35, " ");
-	$headline=substr(str_pad($headline,35),0,35);
-	$headline.="ƒ";
-	$headline=strtoupper($headline);
-	return 'OL,6,'."$headline"."$mpp\r\n";
+	$headline = iconv("UTF-8", "ASCII//TRANSLIT", $headline);
+	$headline = strtoupper($headline);
+	$lines = explode("\r\n", wordwrap($headline, 38, "\r\n"));
+	$lines = array_slice($lines, 0, 2);	// max 2 regels
+	$line1 = substr(str_pad($lines[0],38),0,38);
+	$line2 = isset($lines[1]) && trim($lines[1]) !== '' ? $lines[1] : '';
+	// Paginanummer achter de tweede regel (of eerste als er maar 1 is)
+	$line2 = substr(str_pad($line2, 35),0,35) . "ƒ$mpp";
+	$out  = 'OL,6,‡' . $line1 . "\r\n";
+	$out .= 'OL,7,‡' . $line2 . "\r\n";
+	return $out;
 }
 writeHeader();
 writePage('01');
-echo "OL,5,ƒNews\r\n";
+echo "OL,5,ƒNieuws\r\n";
 echo makeHead('page0.html','104',$ft);
 writePage('02');
-echo "OL,5,ƒNews\r\n";
+echo "OL,5,ƒNieuws\r\n";
 echo makeHead('page1.html','105',$ft);
 writePage('03');
-echo "OL,5,ƒNews\r\n";
+echo "OL,5,ƒNieuws\r\n";
 echo makeHead('page2.html','106',$ft);
 writePage('04');
-echo "OL,5,ƒNews\r\n";
+echo "OL,5,ƒNieuws\r\n";
 echo makeHead('page3.html','107',$ft);
 writePage('05');
-echo "OL,5,ƒNews\r\n";
+echo "OL,5,ƒNieuws\r\n";
 echo makeHead('page4.html','108',$ft);
 writePage('06');
-echo "OL,5,ƒNews\r\n";
+echo "OL,5,ƒNieuws\r\n";
 echo makeHead('page5.html','109',$ft);
 writePage('07');
-echo "OL,5,ƒNews\r\n";
+echo "OL,5,ƒNieuws\r\n";
 echo makeHead('page6.html','110',$ft);
 
 ?>
