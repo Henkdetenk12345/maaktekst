@@ -14,12 +14,12 @@ Om het bijwerken van bestanden te vereenvoudigen, gebruik ik git.
 
 <b>git clone https://github.com/henkdetenk12345/maaktekst/ ~/maaktekst/</b>
 
-# hoe moet je dit toevoegen aan CRON
-To create a schedule type
+# toevoegen aan CRON
+Om een ​​schema te maken
 
 <b>sudo crontab -e</b>
 
-Voeg je cron planningen toe aan het einde
+Voeg dit toe aan het einde van je cron schema
 
   0  8 * * * /home/pi/maaktekst/render.sh
 
