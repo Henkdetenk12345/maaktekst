@@ -205,9 +205,9 @@ function outputheader($file,$content,$mppss)
 		break;
 	
 	default;
-		echo "OL,1,Wj#3kj#3kj#3kT]S     xl0|,h44|h,$\r\n";
-		echo 'OL,2,Wj $kj $kj \'kT]S     j5s*uu?bs5'."\r\n";
-		echo 'OL,3,W"###"###"###T///////,-.,,/,,.-,.///////'."\r\n";
+		echo "OL,1,WjcskjcskjsssT]S  `<t($|h4|,h44|h,$\r\n";
+		echo 'OL,2,Wjjjjj*.j(,,jT]S  j5j5oz%s*uu?bs5'."\r\n";
+		echo 'OL,3,W"#"#"###"###T////-.,-.-,/,,/,,.-,./////'."\r\n";
 		echo "OL,22,D]CHome news digestG141CWorld digestG142\r\n";
 		echo "OL,23,D]CNews IndexG102CFlashG150CRegionalG160\r\n";
 		break;
